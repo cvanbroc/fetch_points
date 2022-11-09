@@ -35,8 +35,8 @@ def add_transaction():
         return transactionJSON, 201
     return {"error": "Request is not JSON"}, 415
 
-#helper function to run quick verification on whether point spend should be allowed
-#returns true if there are enough transaction points to be spent, false otherwise
+# helper function to run quick verification on whether point spend should be allowed
+# returns true if there are enough transaction points to be spent, false otherwise
 def _check_point_spend(spendPointsJSON):
     spendPoints = spendPointsJSON["points"]
     if spendPoints < 0:
@@ -94,7 +94,6 @@ def spend_points():
                         # update transaction to show all points used
                         i["points"] = 0
                         
-            # return jsonify(spent)
         else:
             return {"error": "The requested point spend is not allowed"}, 422
     else:
